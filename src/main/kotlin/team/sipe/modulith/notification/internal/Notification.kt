@@ -1,5 +1,6 @@
 package team.sipe.modulith.notification.internal
 
+import org.springframework.data.annotation.Id
 import java.util.Date
 
 /**
@@ -8,6 +9,7 @@ import java.util.Date
 data class Notification(
     val productName: String,
     val date: Date,
-    val format: NotificationType
+    val format: NotificationType,
+    @Id val id: Long? = null
 ) {
 }

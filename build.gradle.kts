@@ -23,15 +23,21 @@ extra["springModulithVersion"] = "1.3.0"
 /**
  * org.springframework.modulith:spring-modulith-starter-core 스프링 모듈리스를 실행하기 위한 핵심 기능을 제공
  * org.springframework.modulith:spring-modulith-starter-test 스프링 모듈리스 테스트를 위한 기능을 제공(ArchUnit, JUnit 5)
- * org.springframework.modulith:spring-modulith-events-api:1.3.0 의 경우 별도로 설정해야 추가됨
+ * org.springframework.modulith:spring-modulith-events-api:1.3.0 의 경우 이벤트 기반 모듈 간 통신을 위한 API를 제공
+ * org.springframework.modulith:spring-modulith-starter-jdbc:1.3.0 의 경우 이벤트 스키마 정의 및 JDBC를 사용한 이벤트 저장소를 제공
  */
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.springframework.modulith:spring-modulith-starter-core")
+    implementation("org.springframework.modulith:spring-modulith-starter-jdbc:1.3.0")
     implementation("org.springframework.modulith:spring-modulith-events-api:1.3.0")
+    implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
+    implementation("org.springframework.modulith:spring-modulith-starter-jdbc")
+    implementation("org.springframework.boot:spring-boot-starter-web")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("org.springframework.modulith:spring-modulith-starter-test")
+    runtimeOnly("org.postgresql:postgresql")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
